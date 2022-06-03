@@ -9,9 +9,7 @@ public class main {
 	public static void main(String[] args) throws Exception {
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("insira o tamanho da fila");
-		final var size = scanner.nextInt();
-		String[] filaCiruclar = new String[size];
+		String[] filaCiruclar = new String[6];
 		QueueManagement queueManagement = new QueueManagement(filaCiruclar);
 
 		while (true) {

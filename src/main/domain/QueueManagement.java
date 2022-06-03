@@ -9,6 +9,7 @@ public class QueueManagement {
 
 	private String[] queue;
 	private int inicio, fim, size;
+	private int condition = 0;
 
 	public String[] getQueue() {
 		return this.queue;
@@ -23,7 +24,7 @@ public class QueueManagement {
 
 	public void addCicleQueue(String data) throws FullQueueException {
 
-		if ((inicio == 0 && fim == size - 1) || ((inicio - 1) % (size - 1) == fim)) {
+		if ((inicio == condition && fim == size - 1) || ((inicio - 1) % (size - 1) == fim)) {
 			throw new FullQueueException("Fila cheia");
 		} else if (fim == -1 && inicio <= 0) {
 			inicio = 0;
@@ -59,7 +60,7 @@ public class QueueManagement {
 		if (inicio == -1) {
 			throw new EmptyQueueException("Fila vazia");
 		}
-
+		condition = 0;
 		queue[inicio] = null;
 
 		if (inicio == fim) {
@@ -67,17 +68,18 @@ public class QueueManagement {
 			fim = -1;
 		}
 
-		else if (inicio == size - 1 ) {
+		else if (inicio == size - 1) {
 
 			if (fim == -1) {
 				inicio = -1;
-			} else if(inicio == 0 )   { // mudar esse if
+			} else if (queue[0] != null && queue[size - 1] == null) {
+				fim = size - 2;
+				inicio = 0;
+				condition = 12;
+
+			} else {
 				fim = inicio - 2;
 				inicio = 0; // mudar essa atribuição
-			}
-			else {
-				fim = -1;
-				inicio--;
 			}
 		} else if (fim == size - 1) {
 
