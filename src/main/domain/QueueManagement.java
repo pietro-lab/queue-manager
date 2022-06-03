@@ -79,7 +79,7 @@ public class QueueManagement {
 
 			} else {
 				fim = inicio - 2;
-				inicio = 0; // mudar essa atribuição
+				inicio = 0; 
 			}
 		} else if (fim == size - 1) {
 
