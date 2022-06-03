@@ -9,7 +9,9 @@ public class main {
 	public static void main(String[] args) throws Exception {
 		
 		Scanner scanner = new Scanner(System.in);
-		String[] filaCiruclar = new String[6];
+		System.out.println("Digite o tamanho da fila maior que 2");
+		final var validate = scanner.nextInt();
+		String[] filaCiruclar = new String[validate > 2 ?  validate : 6];
 		QueueManagement queueManagement = new QueueManagement(filaCiruclar);
 
 		while (true) {
