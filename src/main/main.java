@@ -52,7 +52,7 @@ public class main {
 			case 5:
 				queueManagement.showQueues();
 			default:
-				throw new InvalidOptionException("selecione uma opção valida"); 
+				throw new InvalidOptionException("selecione uma opção valida");
 
 			}
 
